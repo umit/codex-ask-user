@@ -1,6 +1,6 @@
 {
   "name": "ask-user",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Ask a multiple-choice question in Codex and wait for the user's response.",
   "skills": "./skills/",
   "mcpServers": "./.mcp.json",

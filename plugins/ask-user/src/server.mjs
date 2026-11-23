@@ -1,8 +1,9 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
+import manifest from "../.codex-plugin/plugin.json" with { type: "json" };
 
-const server = new McpServer({ name: "ask-user", version: "1.0.2" });
+const server = new McpServer({ name: manifest.name, version: manifest.version });
 
 function result(status, answer) {
   const payload = answer === undefined ? { status } : { status, answer };
@@ -41,7 +42,7 @@ server.registerTool("ask_question", {
   const selection = await askField(question, "choice", {
     type: "string",
     title: "Options",
-    description: "Use the arrow keys to select, then press Enter to send. Press Space to select the first option.",
+    description: "Use the arrow keys to select, then press Enter to send. Press Space to select the focused option.",
     enum: [...options, writeAnswer]
   }, context);
   if (selection.action !== "accept") return result(selection.action);

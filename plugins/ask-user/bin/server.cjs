@@ -36653,8 +36653,22 @@ var StdioServerTransport = class {
   }
 };
 
-// server.mjs
-var server = new McpServer({ name: "ask-user", version: "1.0.2" });
+// plugins/ask-user/.codex-plugin/plugin.json
+var plugin_default = {
+  name: "ask-user",
+  version: "1.0.3",
+  description: "Ask a multiple-choice question in Codex and wait for the user's response.",
+  skills: "./skills/",
+  mcpServers: "./.mcp.json",
+  interface: {
+    displayName: "Ask User",
+    shortDescription: "Show a choice and wait for my answer",
+    category: "Productivity"
+  }
+};
+
+// plugins/ask-user/src/server.mjs
+var server = new McpServer({ name: plugin_default.name, version: plugin_default.version });
 function result(status, answer) {
   const payload = answer === void 0 ? { status } : { status, answer };
   return { content: [{ type: "text", text: JSON.stringify(payload) }] };
@@ -36690,7 +36704,7 @@ server.registerTool("ask_question", {
   const selection = await askField(question, "choice", {
     type: "string",
     title: "Options",
-    description: "Use the arrow keys to select, then press Enter to send. Press Space to select the first option.",
+    description: "Use the arrow keys to select, then press Enter to send. Press Space to select the focused option.",
     enum: [...options, writeAnswer]
   }, context);
   if (selection.action !== "accept") return result(selection.action);

@@ -1,14 +1,46 @@
 # Ask User for Codex
 
-Ask a multiple-choice question inside Codex and wait for the user's answer. The user can select an option or write a custom response.
+Give Codex a question it can hand back to you. Ask User opens a multiple-choice form in a supported Codex chat and waits for your answer. You can pick an option, type your own answer, or cancel.
 
-## Installation
+## Why we built it
 
-Use Node.js 22 or newer and a Codex client that supports MCP forms.
+We wanted the keyboard-driven choice we liked in Pi inside our Codex chat. When Codex printed a numbered list, pressing an arrow key or Enter in the conversation didn’t select a line. We had to type the answer back, even when it was already on screen. That friction mattered most when Codex was ready to act and the next step depended on our preference.
+
+Ask User gives that decision its own form. The selected text goes back to Codex. Cancelling leaves the decision open.
+
+## Choosing a terminal theme
+
+Suppose you want to change your Ghostty theme. In a new Codex chat, try this prompt.
+
+> Use Ask User to let me choose between Catppuccin Mocha, Catppuccin Frappé, and Atom One Dark. Wait for my answer, then show me the Ghostty config line.
+
+The form asks which theme you want. In the Codex desktop app, with the first option focused, press **↓** to select **Catppuccin Frappé**, then **Enter** to send it. Codex can now show you the line using Ghostty’s bundled theme name.
+
+```ini
+theme = Catppuccin Frappe
+```
+
+For the first option, press **Space**, then **Enter**. To enter a different theme, choose **Write my own answer…** and type its name in the next field. The plugin only returns your answer. In this example, Codex shows the configuration and your Ghostty settings stay as they were.
+
+## Install
+
+You need Node.js 22 or later on your PATH and a Codex client that supports MCP form elicitation. The repository includes the built server, so users can install directly.
 
 ```sh
 codex plugin marketplace add umit/codex-ask-user
 codex plugin add ask-user@codex-ask-user
 ```
 
-Start a new chat and try “Use Ask User to ask me which color I prefer.” In the desktop choice card, press an arrow key to select and Enter to send. To choose the first focused option, press Space and then Enter.
+Start a **new chat** after installation so Codex loads the tool. If you see a plain-text list, explicitly ask Codex to use the Ask User plugin. If the client does not support forms, the tool reports that to Codex. The accompanying skill then asks Codex to use a native question card when one is available.
+
+## Develop
+
+Run these commands from a clone of this repository.
+
+```sh
+npm ci
+npm run build
+npm test
+```
+
+Edit `plugins/ask-user/src/server.mjs` to change the tool and `plugins/ask-user/skills/ask-question/SKILL.md` to change when Codex uses it. Rebuild after source changes and commit the resulting `bin/server.cjs` with the source. The tests launch that bundle over MCP stdio and exercise the question-and-answer flow.

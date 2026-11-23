@@ -1,0 +1,16 @@
+{
+  "name": "codex-ask-user",
+  "private": true,
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "build": "esbuild plugins/ask-user/src/server.mjs --bundle --platform=node --format=cjs --target=node22 --legal-comments=eof --outfile=plugins/ask-user/bin/server.cjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}
