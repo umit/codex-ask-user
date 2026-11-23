@@ -1,0 +1,12 @@
+{
+  "name": "ask-user",
+  "version": "1.0.2",
+  "description": "Ask a multiple-choice question in Codex and wait for the user's response.",
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Ask User",
+    "shortDescription": "Show a choice and wait for my answer",
+    "category": "Productivity"
+  }
+}

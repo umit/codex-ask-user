@@ -1,0 +1,20 @@
+{
+  "name": "codex-ask-user",
+  "interface": {
+    "displayName": "Codex Ask User"
+  },
+  "plugins": [
+    {
+      "name": "ask-user",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ask-user"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

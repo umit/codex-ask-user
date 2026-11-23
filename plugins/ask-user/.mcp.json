@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "choice": {
+      "command": "node",
+      "args": ["bin/server.cjs"],
+      "cwd": ".",
+      "tool_timeout_sec": 3600
+    }
+  }
+}
