@@ -16,7 +16,7 @@ Suppose you want to change your Ghostty theme. In a new Codex chat, try this pro
 
 The screenshot shows **Catppuccin Mocha** highlighted. Press **Enter** to submit it, or use the arrow keys to choose another theme.
 
-![Ask User running in Codex CLI with Catppuccin Mocha highlighted and Enter to submit.](docs/images/ghostty-theme-choice.png)
+![Ask User running in Codex CLI with Catppuccin Mocha highlighted and Enter to submit.](docs/images/ghostty-mocha-selection-macos.png)
 
 Codex can then show the Ghostty config line.
 
