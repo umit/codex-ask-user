@@ -14,14 +14,14 @@ Suppose you want to change your Ghostty theme. In a new Codex chat, try this pro
 
 > Use Ask User to let me choose between Catppuccin Mocha, Catppuccin Frappe, and Atom One Dark. Wait for my answer, then show me the Ghostty config line.
 
-In this Codex CLI session, pressing **↓** highlighted the second theme. **Enter** sends it back to Codex.
+The screenshot shows **Catppuccin Mocha** highlighted. Press **Enter** to submit it, or use the arrow keys to choose another theme.
 
-![Ask User running in Codex CLI with Catppuccin Frappe highlighted and Enter to submit.](docs/images/ghostty-theme-choice.png)
+![Ask User running in Codex CLI with Catppuccin Mocha highlighted and Enter to submit.](docs/images/ghostty-theme-choice.png)
 
 Codex can then show the Ghostty config line.
 
 ```ini
-theme = Catppuccin Frappe
+theme = Catppuccin Mocha
 ```
 
 To enter a different theme, choose **Write my own answer…** and type its name in the next field. The plugin only returns your answer. In this example, Codex shows the configuration and your Ghostty settings stay as they were.
