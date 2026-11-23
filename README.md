@@ -14,7 +14,24 @@ Suppose you want to change your Ghostty theme. In a new Codex chat, try this pro
 
 > Use Ask User to let me choose between Catppuccin Mocha, Catppuccin Frappé, and Atom One Dark. Wait for my answer, then show me the Ghostty config line.
 
-The form asks which theme you want. In the Codex desktop app, with the first option focused, press **↓** to select **Catppuccin Frappé**, then **Enter** to send it. Codex can now show you the line using Ghostty’s bundled theme name.
+With the first option focused, press **↓** once. The ASCII sketch shows the selection before you send it.
+
+```text
++----------------------------------+
+| Which Ghostty theme do you want? |
+|                                  |
+| ( ) Catppuccin Mocha             |
+| (*) Catppuccin Frappé            |
+| ( ) Atom One Dark                |
+| ( ) Write my own answer…         |
++----------------------------------+
+        |
+        | Enter
+        v
+Codex receives "Catppuccin Frappé"
+```
+
+Codex can then show the Ghostty config line.
 
 ```ini
 theme = Catppuccin Frappe
